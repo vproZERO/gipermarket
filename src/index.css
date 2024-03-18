@@ -64,9 +64,13 @@ img{
   object-fit: cover;
 }
 
-.wrap {
+.wrapper {
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: space-between;
+}
+
+body{
+  overflow-x: hidden;
 }
