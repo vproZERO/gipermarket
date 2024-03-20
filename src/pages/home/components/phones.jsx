@@ -8,7 +8,7 @@ const Phones = () => {
     const {data} = useGetPhones()
     const settings = {
         infinite: true,
-        speed: 1000,
+        speed: 2000,
         slidesToShow: 6,
         slidesToScroll: 2,
         autoplay: true
