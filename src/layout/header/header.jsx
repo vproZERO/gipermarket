@@ -6,7 +6,7 @@ import ModalMenu from "../../assets/icon/ModalMenu";
 import { Link } from "react-router-dom";
 import { useGetCatalog } from "./service/query/useGetCatalog";
 import Skeleton from "react-loading-skeleton";
-import Logo from "/public/logo.svg";
+import Logo from "/public/logo.png";
 import Search from "./components/search";
 import ProfileIcon from "../../assets/icon/profile-icon";
 import HearthIcon from "../../assets/icon/hearth-icon";
@@ -68,8 +68,11 @@ const Header = () => {
               </div>
             )}
           </Modal>
-          <Link to={"/"} className="w-24">
-            <img src={Logo} alt="logo" />
+          <Link to={"/"} className="gap-2 flex items-center">
+            <div className="w-[50px]">
+              <img src={Logo} alt="logo" />
+            </div>
+            <h3 className="font-bold text-primary text-2xl">Gipermarket</h3>
           </Link>
           <Button variant="primary" onClick={open}>
             <ModalMenu />
@@ -102,27 +105,28 @@ const Header = () => {
         </div>
       </div>
       <div className="lg:hidden mb-4">
-        <div className="flex items-center justify-between bg-content px-4 py-2 mb-2">
-          <Link to={'/profile'} className="text-text hover:text-primary">
-            <ProfileIcon/>
+        <div className="flex items-center justify-between  px-4 py-2 mb-2">
+          <Link to={"/profile"} className="text-text hover:text-primary">
+            <ProfileIcon />
           </Link>
-          <Link className="w-[90px]" to={'/'}>
-                  <img src={Logo} alt="logo" />
+          <Link className="w-[90px] flex items-center" to={"/"}>
+            <img src={Logo} alt="logo" />
+            <h3>Gipermarket</h3>
           </Link>
           <div className="flex items-center gap-4">
-            <Link className="text-text hover:text-primary" to={'/like'}>
-                  <HearthIcon/>
+            <Link className="text-text hover:text-primary" to={"/like"}>
+              <HearthIcon />
             </Link>
-            <Link className="text-text hover:text-primary" to={'/cart'}>
-                  <CartIcon/>
+            <Link className="text-text hover:text-primary" to={"/cart"}>
+              <CartIcon />
             </Link>
           </div>
         </div>
         <div className="flex items-center justify-between gap-2 px-2">
-          <Button variant={'primary'} onClick={open} className={'p-4'}>
+          <Button variant={"primary"} onClick={open} className={"p-4"}>
             <ModalMenu />
           </Button>
-          <Search/>
+          <Search />
         </div>
       </div>
     </div>
