@@ -7,11 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#211A1A",
-        text: "#333333",
-        subtext: "#999999",
-        yellow1: "#FEEE00",
-        red1: "#E44542",
+        primary: "#621DED",
+        text: "#1F2026",
+        subtext: "#F2F4F7",
+        yellow1: "#621DED",
+        red1: "#621DED",
+        gray: "#F0F0FF",
+        gray2: "#D7D6FF",
+        content: "#F2F4F7"
       }
     },
   },

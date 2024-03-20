@@ -1,4 +1,5 @@
 import React from "react";
+import Skeleton from "react-loading-skeleton";
 import Slider from "react-slick";
 import { useGetBanners } from "../service/query/useGetBanners";
 
@@ -30,8 +31,9 @@ function SamplePrevArrow(props) {
 }
 
 const settings = {
+  dots: true,
   infinite: true,
-  speed: 500,
+  speed: 900,
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
@@ -43,12 +45,18 @@ export const Banner = () => {
   const { data, isLoading } = useGetBanners();
 
   return (
-    <Slider {...settings}>
-      {data?.map((item) => (
-        <div key={item.id}>
-          <img src={item.img} alt="img" />
-        </div>
-      ))}
-    </Slider>
+    <>
+      {isLoading ? (
+        <Skeleton variant="rounded" count={1} height={500} />
+      ) : (
+        <Slider {...settings}>
+          {data?.map((item) => (
+            <div key={item.id}>
+              <img src={item.img} alt="img" />
+            </div>
+          ))}
+        </Slider>
+      )}
+    </>
   );
 };
