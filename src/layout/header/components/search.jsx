@@ -27,68 +27,68 @@ const Search = () => {
         />
       </div>
       {isLoading ? (
-        <div className="absolute left-0 grid grid-cols-3 gap-x-10 px-10 right-0 bg-white py-10  ">
-          <div className="mb-3">
+        <div className="absolute left-0 grid md:grid-cols-3 grid-cols-2 z-50  gap-x-10 md:px-10 px-2 right-0 bg-white md:py-10  ">
+          <div className="mb-3 z-50">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 z-50 hidden md:block">
             <Skeleton variant="text" height={45} count={1} />
           </div>
         </div>
@@ -96,15 +96,15 @@ const Search = () => {
         <div
           className={
             data
-              ? " search_context bg-white  grid grid-cols-3 gap-3 absolute z-60 py-10"
+              ? " search_context bg-white  grid md:grid-cols-3 grid-cols-2 md:gap-3 absolute z-60 py-4 md:py-10"
               : ""
           }
         >
           {data?.map((item) => (
-            <div key={item.id} className={data ? "mx-10 p-1" : ""}>
+            <div key={item.id} className={data ? "ms:mx-10 mx-2 p-1" : ""}>
               {item.title ? (
                 <Link
-                  className="transition hover:text-red1 hover:-translate-y-2 font-semibold text-xl text-text block"
+                  className="transition hover:text-red1 hover:-translate-y-2 md:font-semibold font-normal md:text-xl text-lg text-text block"
                   to={`/catalog/${item.title}`}
                 >
                   {item.title}

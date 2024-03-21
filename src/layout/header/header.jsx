@@ -50,10 +50,10 @@ const Header = () => {
             {isLoading ? (
               <Skeleton count={6} height={40} />
             ) : (
-              <div className="grid grid-cols-3 gap-[92px]">
+              <div className="grid md:grid-cols-3 grid-cols-2 md:gap-[92px] gap-5">
                 {data?.map((item) => (
                   <Link
-                    className="lg:flex items-center justify-center text-text hover:text-red1 gap-4 bg-[#F6F6F6] px-4 py-[14px]"
+                    className="lg:flex items-center justify-center text-text hover:text-red1 gap-4 bg-[#F6F6F6] md:px-4 md:py-[14px] py-3 px-4"
                     to={`/catalog/${item.name}`}
                     key={item.id}
                   >
@@ -89,14 +89,14 @@ const Header = () => {
             <h3 className="font-normal text-base ">Профиль</h3>
           </Link>
           <Link
-            to={"/profile"}
+            to={"/like"}
             className="text-text hover:text-primary flex flex-col gap-1 items-center "
           >
             <HearthIcon />
             <h3 className="font-normal text-base ">Избранное</h3>
           </Link>
           <Link
-            to={"/profile"}
+            to={"/cart"}
             className="text-text hover:text-primary flex flex-col gap-1 items-center "
           >
             <CartIcon />
@@ -104,14 +104,16 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className="lg:hidden mb-4">
+      <div className="lg:hidden mb-4 py-4">
         <div className="flex items-center justify-between  px-4 py-2 mb-2">
-          <Link to={"/profile"} className="text-text hover:text-primary">
+          <Link to={"/profile"} className="text-text  hover:text-primary">
             <ProfileIcon />
           </Link>
-          <Link className="w-[90px] flex items-center" to={"/"}>
-            <img src={Logo} alt="logo" />
-            <h3>Gipermarket</h3>
+          <Link className="flex items-center" to={"/"}>
+            <div className="w-[40px]">
+              <img src={Logo} alt="logo" />
+            </div>
+            <h3 className="text-primary font-semibold text-2xl">Gipermarket</h3>
           </Link>
           <div className="flex items-center gap-4">
             <Link className="text-text hover:text-primary" to={"/like"}>

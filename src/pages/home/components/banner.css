@@ -1,0 +1,16 @@
+
+
+@media screen and (max-width: 600px) {
+    .slick-arrow .slick-prev {
+      right: 10px;
+    }
+    .slick-prev {
+      left: 20px;
+    }
+  } 
+
+@media screen and (width: 768px) {
+  .slick-prev {
+    left:10px;
+  }
+}

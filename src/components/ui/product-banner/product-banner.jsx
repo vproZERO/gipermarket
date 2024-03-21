@@ -16,7 +16,7 @@ function SampleNextArrow(props) {
           top: "-20px",
         }}
       >
-        <span className="absolute text-primary -translate-x-1/2 -translate-y-1/2 - top-1/2 left-1/2">
+        <span className="absolute text-primary md:-translate-x-1/2 md:-translate-y-1/2 md:top-1/2 md:left-1/2 left-[-50px]">
           <ArrowRight />
         </span>
       </div>
@@ -30,14 +30,14 @@ function SampleNextArrow(props) {
         className={className}
         style={{
           position: "absolute",
-  
+          
           top: "-20px",
           left: "98%",
           zIndex: 4,
         }}
         onClick={onClick}
       >
-        <span className="absolute text-primary -translate-x-1/2 -translate-y-1/2 bg- - top-1/2 left-1/2">
+        <span className="absolute text-primary  md:-translate-x-1/2 md:-translate-y-1/2   md:top-1/2 md:left-1/2 left-[-80px]">
           <ArrowLeft />
         </span>
       </div>

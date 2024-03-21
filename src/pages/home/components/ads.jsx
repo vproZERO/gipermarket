@@ -42,15 +42,15 @@ const settings = {
 const Ads = () => {
   const { data, isLoading } = useGetAds();
   return (
-    <div className="py-8 px-10 ">
-      <h2 className="text-text font-semibold text-2xl mb-6">Акции</h2>
+    <div className="md:py-8 md:px-10 px-2 py-1">
+      <h2 className="text-text font-semibold md:text-2xl text-xl md:mb-6 mb-2">Акции</h2>
       <div>
         {isLoading ? (
           <Skeleton count={1} height={530} />
         ) : (
           <Slider {...settings}>
             {data?.map((item) => (
-              <div key={item.id} className="h-[530px] ">
+              <div key={item.id} className="">
                 <img src={item.img} alt="img" />
               </div>
             ))}

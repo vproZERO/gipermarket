@@ -10,7 +10,7 @@ const Modal = ({ children, close, isOpen }) => {
   return (
     <Dialog open={isOpen} onClose={close} className="relative z-50">
       <div className="fixed inset-0 flex w-screen items-center justify-center bg-[#0000006b]">
-        <Dialog.Panel className="py-12 px-20 rounded bg-white p-5">
+        <Dialog.Panel className="md:py-12 md:px-20 rounded bg-white m-5 p-5">
           {children}
         </Dialog.Panel>
       </div>

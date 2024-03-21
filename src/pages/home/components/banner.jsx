@@ -26,7 +26,9 @@ function SamplePrevArrow(props) {
         zIndex: "49",
       }}
       onClick={onClick}
-    />
+    >
+      
+    </div>
   );
 }
 
@@ -49,13 +51,15 @@ export const Banner = () => {
       {isLoading ? (
         <Skeleton variant="rounded" count={1} height={500} />
       ) : (
-        <Slider {...settings}>
-          {data?.map((item) => (
-            <div key={item.id}>
-              <img src={item.img} alt="img" />
-            </div>
-          ))}
-        </Slider>
+        <div>
+          <Slider {...settings}>
+            {data?.map((item) => (
+              <div key={item.id}>
+                <img src={item.img} alt="img" />
+              </div>
+            ))}
+          </Slider>
+        </div>
       )}
     </>
   );
