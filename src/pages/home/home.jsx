@@ -8,7 +8,7 @@ import ProductCard from "../../components/cards/product-card";
 import Skeleton from "react-loading-skeleton";
 import Slider from "react-slick";
 import "./home.css";
-import useGetBrand from "./service/query/useGetBrandjs";
+import useGetBrand from "./service/query/useGetBrand.js";
 import { Link } from "react-router-dom";
 
 const settings = {
