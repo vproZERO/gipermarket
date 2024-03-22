@@ -9,10 +9,10 @@ const Catalog = () => {
   const { data, isLoading } = useGetSimpleCatalog(catalog);
   console.log(data);
   return (
-    <div className="">
+    <div className="px-1 md:px-10">
       <div className="">
         {isLoading ? (
-          <div className="grid grid-cols-4 gap-11">
+          <div className="grid md:grid-cols-4 md:gap-11 grid-cols-2">
             <Skeleton count={4} height={323} className='mb-5' />
             <Skeleton count={4} height={323} className='mb-5' />
             <Skeleton count={4} height={323} className='mb-5' />
@@ -20,7 +20,7 @@ const Catalog = () => {
 
           </div>
         ) : (
-          <div className="grid grid-cols-4 gap-11">
+          <div className="grid md:grid-cols-4 md:gap-11 grid-cols-2">
             {data?.map((item) => (
               <SimpleCatalogCard key={item.id} {...item} />
             ))}

@@ -11,7 +11,7 @@ const ProductCard = ({ title, id, img, price, brand , color , rame , ram}) => {
         </div>
         <h2 className="text-text font-normal md:text-base text-sm ">{title}</h2>
         <h3 className="text-text font-normal md:text-base text-sm"><strong>Brand:</strong> {brand} </h3>
-        <h3 className="text-text font-normal md:text-base text-sm md:mb-6 mb-3">{color} {rame ? rame : ram}</h3>
+        <h3 className="text-text font-normal md:text-base text-sm md:mb-6 mb-3">{color ? color : ''} {rame ? (rame) : ''} {ram ? (ram) : ''}</h3>
         <div className="flex items-center justify-between">
           <p className="text-text font-semibold md:text-lg text-sm">{price} so`m</p>
           <Button className={'hover:text-primary'} variant={"primary"}>
