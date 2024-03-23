@@ -6,12 +6,40 @@ import OkLogo from "../../assets/icon/ok-logo";
 import VkLogo from "../../assets/icon/vk-logo";
 import YoutubeLogo from "../../assets/icon/youtube-logo";
 import Accordion from "../../components/ui/accordion/accordion";
+import useModal from "../../hooks/useModal";
+import { useGetCatalog } from "../header/service/query/useGetCatalog";
 import FooterBottom from "./components/footer-bottom";
 import Logo from "/public/logo.png";
+import Skeleton from "react-loading-skeleton";
+import Modal from "../../components/ui/modal/modal";
 
 const Footer = () => {
+  const { close, isOpen, open } = useModal();
+  const { data, isLoading } = useGetCatalog();
   return (
     <div className="">
+      <Modal close={close} isOpen={isOpen}>
+            {isLoading ? (
+              <Skeleton count={6} height={40} />
+            ) : (
+              <div className="grid md:grid-cols-3 grid-cols-2 md:gap-[92px] gap-5">
+                {data?.map((item) => (
+                  <Link
+                    className="lg:flex items-center justify-center text-text hover:text-red1 gap-4 bg-[#F6F6F6] md:px-4 md:py-[14px] py-3 px-4"
+                    to={`/catalog/${item.name}`}
+                    key={item.id}
+                  >
+                    <div className="w-24">
+                      <img src={item.img} alt="" />
+                    </div>
+                    <span className="max-w-24 font-medium text-base ">
+                      {item.text}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </Modal>
       <div className="bg-[#F5F5F6] px-2 md:px-10 md:py-9 py-6 block md:flex">
         <div className="mb-6 md:mb-0">
           <Link
@@ -78,13 +106,17 @@ const Footer = () => {
           </div>
         </div>
 
+        
+
+
+
         <div className="md:hidden">
           <div className="mb-4">
             <Accordion quetion={"О магазине"}>
               <Link className="text-sm font-normal text-text block mb-2 hover:text-primary transition">
                 <span>Условия обмена и возврата</span>
               </Link>
-              <Link className="text-sm font-normal text-text block mb-2 hover:text-primary transition">
+              <Link onClick={open} className="text-sm font-normal text-text block mb-2 hover:text-primary transition">
                 <span>Каталог</span>
               </Link>
               <Link className="text-sm font-normal text-text block mb-2 hover:text-primary transition">

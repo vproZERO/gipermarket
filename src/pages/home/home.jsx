@@ -44,7 +44,9 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <CatalogBanner />
+      <section id="catalog">
+        <CatalogBanner />
+      </section>
       <section className="md:px-10 md:py-[48px] px-2 pt-6">
         <h2 className="font-semibold text-xl text-text hover:text-primary active:text-primary">
           Смартфоны и планшеты
@@ -241,9 +243,17 @@ const Home = () => {
           <h2>Популярные бренды</h2>
           <Slider {...brandsettings}>
             {brand?.map((item) => (
-              <Link to={`/catalog/${item.brand}`} className="bg-content py-1 px-3 w-[181px] h-[90px]" key={item.id}>
+              <Link
+                to={`/catalog/${item.brand}`}
+                className="bg-content py-1 px-3 w-[181px] h-[90px]"
+                key={item.id}
+              >
                 <div className="">
-                  <img className="object-fill w-[100px] h-[80px]" src={item.img} alt="img" />
+                  <img
+                    className="object-fill w-[100px] h-[80px]"
+                    src={item.img}
+                    alt="img"
+                  />
                 </div>
               </Link>
             ))}
