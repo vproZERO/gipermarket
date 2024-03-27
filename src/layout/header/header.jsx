@@ -11,8 +11,10 @@ import Search from "./components/search";
 import ProfileIcon from "../../assets/icon/profile-icon";
 import HearthIcon from "../../assets/icon/hearth-icon";
 import CartIcon from "../../assets/icon/cart-icon";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const { count , liked} = useSelector((state) => state.cart);
   const { close, isOpen, open } = useModal();
   const { data, isLoading } = useGetCatalog();
   return (
@@ -97,10 +99,13 @@ const Header = () => {
           </Link>
           <Link
             to={"/cart"}
-            className="text-text hover:text-primary flex flex-col gap-1 items-center "
+            className="text-text hover:text-primary flex flex-col relative gap-1 items-center "
           >
             <CartIcon />
             <h3 className="font-normal text-base ">Корзина</h3>
+            <span className="absolute bg-primary rounded-full text-white font-bold text-xs px-[5px] right-[10px] top-[-5px]">
+              {count}
+            </span>
           </Link>
         </div>
       </div>
@@ -116,11 +121,23 @@ const Header = () => {
             <h3 className="text-primary font-semibold text-2xl">Gipermarket</h3>
           </Link>
           <div className="flex items-center gap-4">
-            <Link className="text-text hover:text-primary" to={"/like"}>
+            <Link
+              className="text-text hover:text-primary relative"
+              to={"/like"}
+            >
               <HearthIcon />
+              <span className="absolute bg-primary rounded-full text-white font-semibold text-xs px-[5px] right-[-10px] top-[-5px]">
+                {liked}
+              </span>
             </Link>
-            <Link className="text-text hover:text-primary" to={"/cart"}>
+            <Link
+              className="text-text hover:text-primary relative"
+              to={"/cart"}
+            >
               <CartIcon />
+              <span className="absolute bg-primary rounded-full text-white font-semibold text-xs px-[5px] right-[-10px] top-[-5px]">
+                {count}
+              </span>
             </Link>
           </div>
         </div>

@@ -7,6 +7,7 @@ import Catalog from "./pages/catalog/catalog"
 import Home from "./pages/home/home"
 import Likes from "./pages/likes/likes"
 import Profile from "./pages/profile/profile"
+import SingleProduct from "./pages/single-product/single-product"
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={<AppLayout/>}>
           <Route index element={<Home/>}/>
-          <Route path="Catalog/:catalog" element={<Catalog/>}/>
+          <Route path="Catalog/:id" element={<Catalog/>}/>
+          <Route path="product/:id" element={<SingleProduct/>}/>
           <Route path="cart" element={<Cart/>}/>
           <Route path="like" element={<Likes/>}/>
           <Route path="profile" element={<Profile/>}/>

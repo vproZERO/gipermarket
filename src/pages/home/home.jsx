@@ -74,30 +74,9 @@ const Home = () => {
             <h1 className="text-[#828282] text-sm font-medium mb-[14px] md:text-text md:text-2xl md:font-normal md:mb-10 md:border-b-2 md:border-[#EDEDED] md:pb-[14px]">
               Ноутбуки и компьютеры
             </h1>
-            {data2?.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center p-1 gap-1 mb-[12px] md:px-1 md:py-2 md:gap-4 md:mb-6"
-              >
-                <div className="w-16 md:w-36">
-                  <img src={item.img} alt="img" />
-                </div>
-                <div>
-                  <h2 className="text-text text-xs font-normal md:text-lg md:max-w-[249px] max-w-[250px]">
-                    {item.title}
-                  </h2>
-                  <p className="text-text text-xs font-normal md:text-lg">
-                    <strong>Brand:</strong> {item.brand}
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <p className="text-text text-xs font-bold md:text-lg">
-                      {item.price} so`m
-                    </p>
-                    <p className="text-[#999999] text-xs font-normal line-through md:text-lg">
-                      26 190 000 Сум
-                    </p>
-                  </div>
-                </div>
+            {data2?.slice(0, 3).map((item) => (
+              <div key={item.id} className="max-h-[400px]">
+                <ProductCard {...item} />
               </div>
             ))}
           </div>
@@ -105,30 +84,9 @@ const Home = () => {
             <h1 className="text-[#828282] text-sm font-medium mb-[14px] md:text-text md:text-2xl md:font-normal md:mb-10 md:border-b-2 md:border-[#EDEDED] md:pb-[14px]">
               Смартфоны и планшеты
             </h1>
-            {data?.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center p-1 gap-1 mb-[12px] md:px-1 md:py-2 md:gap-4 md:mb-6"
-              >
-                <div className="w-16 md:w-36">
-                  <img src={item.img} alt="img" />
-                </div>
-                <div>
-                  <h2 className="text-text text-xs font-normal md:text-lg">
-                    {item.title}
-                  </h2>
-                  <p className="text-text text-xs font-normal md:text-lg">
-                    <strong>Brand:</strong> {item.brand}
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <p className="text-text text-xs font-bold md:text-lg">
-                      {item.price} so`m
-                    </p>
-                    <p className="text-[#999999] text-xs font-normal line-through md:text-lg">
-                      26 190 000 Сум
-                    </p>
-                  </div>
-                </div>
+            {data?.slice(0, 3).map((item) => (
+              <div key={item.id} className="flex flex-col justify-between">
+                <ProductCard {...item} />
               </div>
             ))}
           </div>
@@ -136,30 +94,12 @@ const Home = () => {
             <h1 className="text-[#828282] text-sm font-medium mb-[14px] md:text-text md:text-2xl md:font-normal md:mb-10 md:border-b-2 md:border-[#EDEDED] md:pb-[14px]">
               Ноутбуки и компьютеры
             </h1>
-            {data2?.map((item) => (
+            {data2?.slice(0, 3).map((item) => (
               <div
                 key={item.id}
                 className="flex items-center p-1 gap-1 mb-[12px] md:px-1 md:py-2 md:gap-4 md:mb-6"
               >
-                <div className="w-16 md:w-36">
-                  <img src={item.img} alt="img" />
-                </div>
-                <div>
-                  <h2 className="text-text text-xs font-normal md:text-lg md:max-w-[249px] max-w-[250px]">
-                    {item.title}
-                  </h2>
-                  <p className="text-text text-xs font-normal md:text-lg">
-                    <strong>Brand:</strong> {item.brand}
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <p className="text-text text-xs font-bold md:text-lg">
-                      {item.price} so`m
-                    </p>
-                    <p className="text-[#999999] text-xs font-normal line-through md:text-lg">
-                      26 190 000 Сум
-                    </p>
-                  </div>
-                </div>
+                <ProductCard {...item}/>
               </div>
             ))}
           </div>
@@ -168,30 +108,12 @@ const Home = () => {
             <h1 className="text-[#828282] text-sm font-medium mb-[14px] md:text-text md:text-2xl md:font-normal md:mb-10 md:border-b-2 md:border-[#EDEDED] md:pb-[14px]">
               Смартфоны и планшеты
             </h1>
-            {data?.map((item) => (
+            {data?.slice(0, 3).map((item) => (
               <div
                 key={item.id}
                 className="flex items-center p-1 gap-1 mb-[12px] md:px-1 md:py-2 md:gap-4 md:mb-6"
               >
-                <div className="w-16 md:w-36">
-                  <img src={item.img} alt="img" />
-                </div>
-                <div>
-                  <h2 className="text-text text-xs font-normal md:text-lg">
-                    {item.title}
-                  </h2>
-                  <p className="text-text text-xs font-normal md:text-lg">
-                    <strong>Brand:</strong> {item.brand}
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <p className="text-text text-xs font-bold md:text-lg">
-                      {item.price} so`m
-                    </p>
-                    <p className="text-[#999999] text-xs font-normal line-through md:text-lg">
-                      26 190 000 Сум
-                    </p>
-                  </div>
-                </div>
+                <ProductCard {...item}/>
               </div>
             ))}
           </div>

@@ -9,13 +9,14 @@ import { useMediaQuery } from "react-responsive";
 import LikedIcon from "../../assets/icon/liked-icon";
 
 
-const ProductCard = ({ title, id, img, price, brand, color, rame, ram }) => {
+const LIkedCard = ({ title, id, img, price, brand, color, rame, ram }) => {
   const isDesktop = useMediaQuery({ minWidth: 768 });
   const dispatch = useDispatch();
   const handleAddToFavorites = () => {
     dispatch(addToFavorites({title, id, img, price, brand, color, rame, ram}));
     toast.success("Товар добавлен в избранное");
 }
+  const isAdded = useSelector(state => state.cart);
 
   const addStore = () => {
     dispatch(add({ id, title, img, price, brand, color, rame, ram }));
@@ -68,4 +69,4 @@ const ProductCard = ({ title, id, img, price, brand, color, rame, ram }) => {
   );
 };
 
-export default ProductCard;
+export default LIkedCard;

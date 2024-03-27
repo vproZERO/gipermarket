@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 
-const Button = ({ children, variant, className, onClick, type }) => {
+const Button = ({ children, variant, className, onClick, type , icon}) => {
   return (
     <button
       type={type}
@@ -14,6 +14,7 @@ const Button = ({ children, variant, className, onClick, type }) => {
         }
       )}
     >
+      {icon}
       {children}
     </button>
   );

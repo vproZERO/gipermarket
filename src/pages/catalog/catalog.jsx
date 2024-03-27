@@ -1,12 +1,12 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 import { useParams } from "react-router-dom";
-import SimpleCatalogCard from "../../components/cards/simple-catalog-card";
+import ProductCard from '../../components/cards/product-card'
 import useGetSimpleCatalog from "./service/useGetSimpleCatalog";
 
 const Catalog = () => {
-  const { catalog } = useParams();
-  const { data, isLoading } = useGetSimpleCatalog(catalog);
+  const { id } = useParams();
+  const { data, isLoading } = useGetSimpleCatalog(id);
   console.log(data);
   return (
     <div className="px-1 md:px-10">
@@ -22,7 +22,7 @@ const Catalog = () => {
         ) : (
           <div className="grid md:grid-cols-4 md:gap-11 grid-cols-2">
             {data?.map((item) => (
-              <SimpleCatalogCard key={item.id} {...item} />
+              <ProductCard key={item.id} {...item} />
             ))}
           </div>
         )}
