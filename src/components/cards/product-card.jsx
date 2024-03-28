@@ -1,16 +1,25 @@
 import React from "react";
 import Button from "../ui/button/button";
 import CartIcon from "../../assets/icon/cart-icon";
+import CartIcon2 from "../../assets/icon/cart-icon2";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { add, addToFavorites } from "../../redux/reducers/cart";
 import { toast } from "react-toastify";
-import { useMediaQuery } from "react-responsive";
 import LikedIcon from "../../assets/icon/liked-icon";
+import LikedIcon2 from "../../assets/icon/liked-icon2";
 
 
 const ProductCard = ({ title, id, img, price, brand, color, rame, ram }) => {
-  const isDesktop = useMediaQuery({ minWidth: 768 });
+
+  const likedProduct = useSelector((state) => state.cart.likes)
+  const isLiked = likedProduct.some((product) => product.id === id)
+
+  const cartProducts = useSelector((state) => state.cart.products);
+  const isAddedToCart = cartProducts.some((product) => product.id === id);
+
+
+
   const dispatch = useDispatch();
   const handleAddToFavorites = () => {
     dispatch(addToFavorites({title, id, img, price, brand, color, rame, ram}));
@@ -19,15 +28,7 @@ const ProductCard = ({ title, id, img, price, brand, color, rame, ram }) => {
 
   const addStore = () => {
     dispatch(add({ id, title, img, price, brand, color, rame, ram }));
-    if (isDesktop) {
-      toast.success("Товар добавлен в корзину", {
-        position: "top-right",
-      });
-    } else {
-      toast.success("Товар добавлен в корзину", {
-        position: "bottom-right",
-      });
-    }
+    toast.success("Товар добавлен в корзину");
   };
   return (
     <div>
@@ -57,11 +58,11 @@ const ProductCard = ({ title, id, img, price, brand, color, rame, ram }) => {
             className={"hover:text-primary"}
             variant={"primary"}
           >
-            <CartIcon />
+            {isAddedToCart ? <CartIcon2 /> : <CartIcon />}
           </Button>
         </div>
-        <Button onClick={handleAddToFavorites} className={`absolute top-0 right-3`} variant={'outline'}>
-          <LikedIcon/>
+        <Button onClick={handleAddToFavorites} className={`absolute top-0 right-3 p-0`} variant={'outline'}>
+          {isLiked ? <LikedIcon2 /> : <LikedIcon />}
         </Button>
       </div>
     </div>

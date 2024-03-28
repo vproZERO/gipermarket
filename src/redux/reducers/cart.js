@@ -105,6 +105,12 @@ const cartReducer = createSlice({
         ),
       };
     },
+    deleteLiked: (state, action) => {
+      return {
+        ...state,
+        likes: state.likes.filter((item) => item.id !== action.payload.id),
+      };
+    }
   },
 });
 
@@ -118,4 +124,5 @@ export const {
   setProductCount,
   setLiked,
   addToFavorites,
+  deleteLiked
 } = cartReducer.actions;

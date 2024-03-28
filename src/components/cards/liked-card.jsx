@@ -3,32 +3,20 @@ import Button from "../ui/button/button";
 import CartIcon from "../../assets/icon/cart-icon";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { add, addToFavorites } from "../../redux/reducers/cart";
+import { add, addToFavorites , deleteLiked} from "../../redux/reducers/cart";
 import { toast } from "react-toastify";
 import { useMediaQuery } from "react-responsive";
-import LikedIcon from "../../assets/icon/liked-icon";
+import LikedIcon2 from "../../assets/icon/liked-icon2";
 
 
 const LIkedCard = ({ title, id, img, price, brand, color, rame, ram }) => {
-  const isDesktop = useMediaQuery({ minWidth: 768 });
   const dispatch = useDispatch();
-  const handleAddToFavorites = () => {
-    dispatch(addToFavorites({title, id, img, price, brand, color, rame, ram}));
-    toast.success("Товар добавлен в избранное");
-}
+
   const isAdded = useSelector(state => state.cart);
 
   const addStore = () => {
     dispatch(add({ id, title, img, price, brand, color, rame, ram }));
-    if (isDesktop) {
-      toast.success("Товар добавлен в корзину", {
-        position: "top-right",
-      });
-    } else {
-      toast.success("Товар добавлен в корзину", {
-        position: "bottom-right",
-      });
-    }
+    toast.success("Товар добавлен в корзину");
   };
   return (
     <div>
@@ -61,8 +49,8 @@ const LIkedCard = ({ title, id, img, price, brand, color, rame, ram }) => {
             <CartIcon />
           </Button>
         </div>
-        <Button onClick={handleAddToFavorites} className={`absolute top-0 right-3`} variant={'outline'}>
-          <LikedIcon/>
+        <Button onClick={() => dispatch(deleteLiked ({id}))} className={`absolute top-0 right-3`} variant={'outline'}>
+          <LikedIcon2/>
         </Button>
       </div>
     </div>

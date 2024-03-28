@@ -8,6 +8,7 @@ import cart from "./reducers/cart";
 import {
   add,
   deleteItem,
+  deleteLiked,
   setProductCount,
   setTotalPrice,
   addToFavorites,
@@ -18,10 +19,11 @@ import {
 const countMiddleware = createListenerMiddleware();
 
 countMiddleware.startListening({
-  matcher: isAnyOf(add, deleteItem, toggleProduct , setLiked, addToFavorites ),
+  matcher: isAnyOf(add, deleteItem, deleteLiked, toggleProduct , setLiked, addToFavorites ),
   effect: (_, api) => {
     api.dispatch(setProductCount());
     api.dispatch(setTotalPrice());
+    api.dispatch(setLiked());
   },
 });
 

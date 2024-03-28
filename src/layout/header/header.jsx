@@ -92,10 +92,13 @@ const Header = () => {
           </Link>
           <Link
             to={"/like"}
-            className="text-text hover:text-primary flex flex-col gap-1 items-center "
+            className="text-text hover:text-primary flex flex-col gap-1 items-center relative"
           >
             <HearthIcon />
             <h3 className="font-normal text-base ">Избранное</h3>
+            <span className="absolute bg-primary rounded-full text-white font-bold text-xs px-[5px] right-[10px] top-[-5px]">
+              {liked}
+            </span>
           </Link>
           <Link
             to={"/cart"}
